@@ -9,6 +9,14 @@ class possetion:
 	def setprice(self, price):
 		self.f.setprice(price)
 
+	def trade(self,money):
+		if money==0:
+			pass
+		elif money>0:
+			self.buy(money)
+		else:
+			self.sell(-money)
+
 	def buy(self,loss):
 		self.loss+=loss
 		self.f.buy(loss)
@@ -28,6 +36,8 @@ class possetion:
 			value = self.f.getinfo()
 		elif cate == "cash":
 			value = self.gain - self.loss
+		elif cate == "cost":
+			value = self.loss
 		
 		return value
 

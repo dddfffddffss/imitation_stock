@@ -2,31 +2,39 @@ import random
 import math
 import numpy as np
 
-from . import invester
+from sub.invester import invester
 
 class field:
-	s, m = None, None
+	investers, m = [], None
 
-	def __init__(self, fund, price, lim):
-		self.s, self.m = invester.invester(fund,price), market(price, lim)
+	def __init__(self, fund, price, lim, strategylist):
+		self.m = market(price, lim)
+		for i in strategylist:
+			self.investers.append(invester(fund, price, i))
 
 	def setmarket(self, marketname, startpoint, israw = False):
 		self.m.setmarket(str(marketname), startpoint, israw)
 
-	def next(self,strategy):
-		# 1. 가격을 탐색한다
-		self.s.setprice(self.m.getprice())
+	def next(self):
+		price = self.m.getprice()
+		for i in self.investers:
+			# 1. 가격을 탐색한다
+			i.setprice(price)
 
-		# 3. 탐색한 가격을 사용한다.
-		self.s.strategy(strategy)
+			# 2. 탐색한 가격을 사용한다.
+			i.next()
 
 		# 3. 마켓이 바뀐다.
 		self.m.nextprice()
 
-	def getinfo(self,object = 's', cate = 'whole'):
-		if object == 's':
-			return self.s.getinfo(cate)
-		else:
+	def getinfo(self, object, cate = 'whole'):
+		try:
+			object = int(object)
+			if object<len(self.investers) and object>=0:
+				return self.investers[object].getinfo(cate)
+			else:
+				return self.m.getinfo()
+		except:
 			return self.m.getinfo()
 			
 class market:
