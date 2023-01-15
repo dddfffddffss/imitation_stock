@@ -8,6 +8,10 @@ from sub.field import field
 matplotlib.rcParams['font.family'] ='Malgun Gothic'
 matplotlib.rcParams['axes.unicode_minus'] =False
 
+#
+# 같이 코딩합시다
+#
+
 # 0: 주식 가치와 완전히 동일하다.(따로 그래프 그릴 필요 없음)
 # 3, 4: 비현실적으로 현금이 많이 투입
 # 5, 6 < 0

@@ -2,7 +2,7 @@ imitaion stock!
 주식을 직접 만들고 전략을 실험하기
 
 <세계관>
-1. field는 독립적인 세계다. 시간(turn)과 장소(market)이 독립적으로 흐른다.
+1. field는 시장. 시간(turn)과 장소(market)이 독립적으로 흐른다.
 2. field에서는 market과 strategy가 있다.
 3. 결과는 field의 getinfo에서 확인한다.
   3-1. f.getinfo
