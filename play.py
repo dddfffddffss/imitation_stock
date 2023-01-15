@@ -9,7 +9,8 @@ matplotlib.rcParams['font.family'] ='Malgun Gothic'
 matplotlib.rcParams['axes.unicode_minus'] =False
 
 #
-# 같이 코딩합시다
+# 롤하지말고 같이 코딩합시다 피방에서 코딩허자
+# 여따 
 #
 
 # 0: 주식 가치와 완전히 동일하다.(따로 그래프 그릴 필요 없음)
@@ -48,6 +49,7 @@ marketnumber, startpoint, israw = "ni225", 6000, True
 fisrtput, firstprice = 10, 10
 
 # investers 
+# 이거 숫자바꾸면 됨
 investers = [2, 4,5,6, 8, 9, 10, 11, 12, 13]
 x,p,y,w = [],[],[],[]
 
